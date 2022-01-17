@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b70fa5b0-e905-441a-8878-d73294558ade" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Python_data/.ipynb_checkpoints/문제 2. 데이터조작 연습문제 (박혜인)-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../Python_data/.ipynb_checkpoints/문제 2. 데이터조작 연습문제 (박혜인)-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Python_data/Pandas_2(Dataframe).ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../Python_data/Pandas_2(Dataframe).ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Python_data/Pandas_3(loc_iloc).ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../Python_data/Pandas_3(loc_iloc).ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Python_data/Pandas_4(데이터조작).ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../Python_data/Pandas_4(데이터조작).ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Python_data/문제 2. 데이터조작 연습문제 (박혜인).ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../Python_data/문제 2. 데이터조작 연습문제 (박혜인).ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SelfStudy_01.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +45,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../DataScience" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
