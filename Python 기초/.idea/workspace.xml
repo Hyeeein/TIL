@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b70fa5b0-e905-441a-8878-d73294558ade" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/SelfStudy_01.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Python_data/(2) 파이썬 통계분석/.ipynb_checkpoints/1_EDA_05.2차원데이터-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../Python_data/(2) 파이썬 통계분석/.ipynb_checkpoints/1_EDA_05.2차원데이터-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Python_data/(2) 파이썬 통계분석/1_EDA_05.2차원데이터.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../Python_data/(2) 파이썬 통계분석/1_EDA_05.2차원데이터.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
