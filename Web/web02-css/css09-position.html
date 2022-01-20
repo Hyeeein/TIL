@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        /*
+            relative : 원래 자신의 위치에서 얼마나 움직이는지
+            absolute : 부모의 위치 기준으로, 상대적으로 얼마나 움직이는지
+            fixed : 브라우저 기준으로, 얼마나 움직이는지
+
+            부모 태그에 relative를 거는 이유
+            -> relative가 안 걸려있으면 body 기준으로 움직임. 그래서 걸어줌.
+        */
+        #box{
+            position: relative;
+            width: 500px;
+            margin: 100px;
+            padding: 10px;
+            border: 1px dotted red;
+        }
+        p{
+            width: 150px;
+            height: 150px;
+            color: #fff;
+            font-weight: bold;
+        }
+        .myred{
+            background: red;
+            position: relative;
+            /* 원래 자기 위치로 가 있음 */
+        }
+        .myblue{
+            background: blue;
+            position: absolute;
+            /* 
+            파란 박스의 원래 위치는 빨간 박스 아래임 (왜? p 태그 이기 때문에 위에서 아래로 정렬됨)
+            여기서 파란색 p 태그의 부모는 빨간색 선으로 된 박스 
+            -> 이걸 기준으로 왼쪽에서 오른쪽으로 100, 위에서 밑으로 30만큼
+            */
+            left: 100px;
+            top: 30px;
+            z-index: 2;
+        }
+        .mygreen{
+            background: green;
+            position: relative;
+            /*
+            relative 원래 자신의 위치 기준 : 빨간 박스 바로 아래가 초록 박스가 원래 자신의 위치임
+            => 확인해보고 싶으면 position 다 주석처리하고 실행해보기
+
+            근데 여기서 왼쪽에서 오른쪽으로 30만큼, 아래쪽에서 위로 30만큼 가도록 함
+            그래서 지금의 위치가 되는 것!
+            */
+            left: 30px;
+            top: -30px;
+        }
+        .myred:hover {
+            z-index: 100;
+        }
+        .myblue:hover {
+            z-index: 100;
+        }
+        .mygreen:hover{
+            z-index: 100;
+        }
+        #fixed{
+            width: 100px;
+            height: 300px;
+            background: silver;
+            position: fixed;
+            right: 500px;
+            top: 100px;
+            /* top은 +로 가면 내려가는 거(내부 방향), -로 가면 올라가는 거(외부 방향)
+               right는 +로 가면 왼쪽으로 가는거(내부 방향), -로 가면 오른쪽으로 가는 거(외부 방향) */
+        }
+    </style>
+</head>
+<body>
+
+    <div id="box">
+        <p class="myred">빨간 박스</p>
+        <p class="mygreen">초록 박스</p>
+        <p class="myblue">파란 박스</p>
+    </div>
+    <div id="fixed">
+        Fixed!!!!!
+    </div>
+    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
+    
+</body>
+</html>
