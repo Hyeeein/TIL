@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function object01(){
+            this.name01 = "홍길동";
+            var name02 = "hong-gd";
+            this.getName2 = function() {
+                return name02;
+            }
+        }
+
+        /* object01은 설계도
+        new object01을 해주면 이 설계도를 가지고 만든 새로운 물건이 생김 -> 이것은 객체라고 부름
+
+        이 객체값은 obj01
+        -> 이 값에서 .name01로 가져오려면? this를 지정해서 변수를 사용하면 객체에서 사용할 수 있음
+        -> 즉, 꺼내오고 싶은 값들은 this로 지정하기 */
+
+
+        // 객체 리터럴 : 객체가 값이에요!
+        var object02 = {
+            name: "kim-sd",
+            prn: function(){
+                alert(object02.name + "의 전화번호 : 010-1111-1111");
+            }
+        }
+        
+        function objTest(){
+            // 객체 생성
+            var obj01 = new object01();
+            // alert(obj01.name01);
+            // alert(obj01.name02);
+            // alert(obj01.getName02());
+
+            // alert(object02.name);
+            // object02.prn();
+            obj01.prn();
+        }
+
+        // 이미 있는 기능은 건들지 말고, 추가해서 쓰자 => prototype
+        // object01에 prn 기능이 없었으니까 이걸로 추가한다!
+        object01.prototype.prn = function(){
+            alert(this.name01 + "의 전화번호는 010-2222-2222" + name02);
+        }
+
+    </script>
+
+</head>
+<body>
+    
+    <h1>object (객체)</h1>
+
+    <pre>
+        객체의 구성
+        - property : 속성
+        - function (method) : 기능
+        - this : 객체 내부의 메서드나 속성을 정의
+        - prototype : 객체의 확장
+    </pre>
+
+    <button onclick = "objTest();">확인</button>
+
+</body>
+</html>
