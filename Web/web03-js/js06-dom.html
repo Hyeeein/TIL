@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script type="text/javascript">
+        // document는 Math처럼 js안에 들어있는 'DOM 탐색 메소드'
+        // document 안에 있는 메소드들을 사용함 (예: Math.PI는 Math 안에 있는 PI를 꺼내쓰듯이)
+
         function searchQS(){
-            // querySelector("css 선택자") : node 하나만 리턴
+            // querySelector("css 선택자") : node 하나만 리턴 (첫 번째꺼만)
             var doc = document.querySelector("#test")
             // console.log(doc)
 
@@ -20,7 +23,7 @@
         function searchID(){
             // css에서 id는 하나의 값의 특성을 가짐. 여러 개 선언해도 하나만 가져옴
             // 그래서 id는 하나만 써주는 것이 더 좋다
-            var doc = document.getElementById("test");
+            var doc = document.getElementById("test");  // id니까 앞에 #을 붙이지 않음
             // console.log(doc); 
             doc.innerHTML = "id 속성으로 탐색";
             doc.style.color = "red";
@@ -64,7 +67,7 @@
 
 <!--
     콘솔창 자체에서도 진행 가능 -> but 로컬에는 저장되지 않음
-    
+
     var test = document.getElementById("test")
     test.innerHTML = "콘솔에서도 가능"
 -->

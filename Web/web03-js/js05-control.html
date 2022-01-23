@@ -51,6 +51,7 @@
             }
             // 만들어보자 !
             // 1. 초기값 2. 조건식이 T이면, 3. 반복문 실행 4. 증감식 실행
+            // 구구단 순서대로 (1~9단)
             for (var i = 2; i < 10; i++) {
                 console.log(i + "단");
 
@@ -58,6 +59,18 @@
                     // console.log(j);
                     console.log(i + " * " + j + " = " + (i * j))
                 }
+            }
+            // 구구단 거꾸로
+            i = 9
+            while (1 <= i){
+                console.log(i + '단');
+                j = 9
+
+                while (1 <= j) {
+                    console.log(i + " * " + j + " = " + (i * j))
+                    j--
+                }
+                i--
             }
         }
 
