@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style type="text/css">
+        #regist {
+            border: 1px solid black;
+            background: pink;
+            position: absolute;
+            top: 200px;
+            left: 500px;
+            display: none;
+        }
+    </style>
+    
+    <!-- 
+        display : none;			//공간을 차지하지 않는다 (만들어지지 않은 상태)
+        visibility: hidden;		//공간을 차지하고, 보이지 않는다 (만들어져 있는 상태)
+     -->
+    
+    <script type="text/javascript">
+
+		// 팝업창 만들기 '창열기' 버튼 누르면 실행
+        function openWin() {
+            var url = "js13-window-popup.html";
+            var title = "myframe";
+            var prop = "top=200px,left=600px,width=500px,height=500px";
+
+			// 팝업창을 만듦
+			// 새로운 창으로 보여질 주소는 url, 새로 열리는 창의 이름은 myframe, 팝업창의 사이즈
+            window.open(url, title, prop);	
+        }
+    
+		// 회원가입하기 '회원가입' 버튼 누르면 실행
+        function registForm() {
+
+			// 이 버튼이 실행되면 id가 regist인 '회원가입폼'을 보이게 함 (none으로 하면 안보임)
+            document.getElementById("regist").style.display = "block";	// display가 block이면 보이기, none이면 안 보이기
+            document.body.style.background = "gray";					// 문서의 body에 해당하는 부분은 gray 색상으로 배경을 씌움
+    
+			// 그리고 name이 'btn'인 창열기, 회원가입 두 버튼을 비활성화함
+            var btns = document.getElementsByName("btn");
+            for ( var i in btns) {
+                btns[i].disabled = "disabled";
+            }
+        }
+		
+		// '회원가입폼'의 '확인' 버튼을 누르면 실행
+        function closeWin() {
+			// '확인' 버튼을 누르면 화면에 보였던 '회원가입폼'이 사라짐
+            document.getElementById("regist").style.display = "none";
+
+			// 동시에 아까 gray 색상으로 변했던 배경도 white 색으로 변경
+            document.body.style.background = "white";
+    
+			// 버튼들을 한번에 btns 변수에 저장하고 disabled = ""로 속성값 삭제
+            var btns = document.getElementsByName("btn");
+            for ( var i in btns) {
+                btns[i].disabled = "";
+            }
+        }
+		// 특정 조건이 충족될 때까지 사용자가 입력 필드를 클릭할 수 없도록 설정하고 (registForm 함수)
+		// 특정 조건이 충족되면 자바스크립트 등으로 disabled 속성값을 삭제하여 사용자가 입력 필드를 다시 사용할 수 있도록 조절 (closeWin 함수)
+    
+
+		// 아이디를 입력하는 칸을 클릭하면 실행
+        function idchk() {
+            alert("중복체크를 확인하세요");
+        }
+    
+		// '중복체크' 버튼을 클릭하면 아래의 파일을 열어줌 (이름은 공백)
+        function idCheck() {
+            open("js13-window-id-check.html", "", "width=300px,height=300px");
+        }
+    </script>
+    
+    
+</head>
+<body>
+    
+    <h1>window객체</h1>
+	
+	<pre>
+	프로퍼티
+	 -document
+	 -history
+	 -location
+	 -navigator
+	 -screen
+	 -frames
+	 -parent
+	 -top
+	 -self
+	메서드
+	 -alert()
+	 -confirm()
+	 -prompt()
+	 -back()
+	 -forward()
+	 -setInterval()
+	 -clearInterval()
+	 -setTimeout()
+	 -open()
+	 -close()
+	 -scroll(),scrollBy(), scrollTo() 
+	</pre>
+
+    
+	<div id="f1">
+		<h1>팝업창 만들기</h1>
+		<button onclick="openWin()" name="btn">창열기</button>
+		<hr>
+		<h1>회원가입하기(div팝업창)</h1>
+		<button onclick="registForm()" name="btn">회원가입</button>
+	</div>
+
+    <!-- 회원가입폼 시작 -->
+	<div id="regist">
+		<form>
+			<table>
+				<caption>회원가입</caption>
+				<tr>
+					<td>아이디</td>
+					<td><input type="text" name="id" onclick="idchk()" readonly="readonly" /> <!--수정 못함. 읽기만 가능-->
+					<input type="button" value="중복체크" onclick="idCheck()" /></td>
+				</tr>
+				<tr>
+					<td>패스워드</td>
+					<td><input type="password" name="pwd" alt="" style="color: red;" checked="checked" /></td>
+				</tr>
+				<tr> 	<!-- 회원가입 폼에서 '확인' 버튼 누르면 폼이 닫힘 -->
+					<td colspan="2" align="center"><input type="button" value="확인" onclick="closeWin()" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<!-- 회원가입폼 종료 -->
+
+	<br/><br/><br/>
+	<iframe name="myframe"></iframe>
+	<!-- 
+		iframe -> 인라인 프레임 : HTML 문서 내에 다른 HTML 문서를 보여줄 떄 사용 (동영상도 넣을 수 있음)
+		name은 프레임의 이름으로, id와 같음 => 이 아이디를 가진 팝업창 관련 메소드가 실행되면 이 안으로 HTML 문서가 보여짐
+	-->
+
+
+</body>
+</html>

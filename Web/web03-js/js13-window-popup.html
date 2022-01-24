@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript">
+        // 전달 버튼을 누르면 실행
+        function test(){
+
+            // 노드 리스트 중 test라는 이름을 가진 요소 중 0번째 요소의 값을 가져옴 => 즉, 입력된 값 가져옴
+            var val=document.getElementsByName("test")[0].value;
+            
+            // 본래의 웹 페이지를 부모창이라고 하고, popup 페이지를 자식창이라고 하면
+            // 이것은 자식창에서 h1에 해당하는 노드리스트 중 1번 요소의 값을 val 값으로 바꿈
+            // 즉, 아까 입력했던 값으로 h1의 1번 요소 내용을 바꿈
+            opener.document.getElementsByTagName("h1")[1].innerHTML=val;
+
+            // 작업을 수행하고 나면 팝업창을 닫음 => 근데 왜 안 닫힐까 !!!!
+            close();
+        }
+    </script>
+    
+</head>
+<body>
+    
+    <!-- 입력란 1개와 버튼 2개 -->
+	<input type="text" name="test"/>
+	<input type="button" onclick="test()" value="전달"/>
+	<input type="button" onclick="self.close()" value="창닫기">
+
+</body>
+</html>
