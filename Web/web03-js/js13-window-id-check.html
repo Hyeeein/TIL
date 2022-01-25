@@ -14,7 +14,7 @@
             var id=document.getElementsByName("id")[0].value;   // 아이디란에 입력한 값을 id 변수에 저장
             var div=document.getElementsByTagName("div")[0];    // div의 위치를 변수 div에 저장
 
-            // indexOf(찾을 문자열[, 찾기 시작할 위치]) : 찾는 문자열 없으면 -1 반환, 대소문자 구분
+            // indexOf(찾을 문자열[, 찾기 시작할 위치]) : 찾는 문자열 없으면 -1 반환, 대소문자 구분 (배열 객체에서도 문자열 객체 사용 가능)
             // 즉, ids 안에 입력한 id 값이 있으면 '아이디가 존재합니다.' 반환
             if(ids.indexOf(id)!=-1){
                 div.innerHTML="<b>아이디가 존재합니다.</b>";
@@ -23,6 +23,7 @@
                 var userId="사용할 수 있는 아이디입니다."         // '사용할 수 없는 아이디입니다.' 문구와
                         +"<input type='button' value='확인'"    // '확인' 버튼 출력
                         +"onclick='insertId(\""+id+"\")'>";     // 그리고 '확인' 버튼을 클릭하면 insertId("id") 실행 (부호 무효화)
+                                                                // 여기서 id는 변수값이 아니라 문자열 "id"
                 div.innerHTML=userId;          
             }
         }

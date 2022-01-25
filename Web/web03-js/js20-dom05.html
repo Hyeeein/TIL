@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        img {
+            vertical-align: middle;
+            width: 300px;
+            height: 300px;
+        }
+        a {
+            font-size: 30px;
+            text-decoration: none;
+        }
+    </style>
+
+    <script>
+        window.onload = function() {
+            var anchs = document.querySelectorAll("a");
+            var img = document.querySelector("img");
+
+            var count = 1;
+
+            // 왼쪽 화살표
+            anchs[0].onclick = function() {
+                var imgAlt = img.getAttribute("alt");
+                if (imgAlt == "img01") {
+                    count = 6;
+                    img.setAttribute("alt", "img06");
+                    img.setAttribute("src", "resources/imgs/img06.jpg");
+                } else {
+                    img.setAttribute("alt", "img0"+(--count));
+                    img.setAttribute("src", "resources/imgs/img0"+count+".jpg");
+                }
+            }
+
+            // 오른쪽 화살표
+            anchs[1].onclick = function() {
+                var imgAlt = img.getAttribute("alt");
+                if (imgAlt == "img06") {
+                    count = 0;
+                    img.setAttribute("alt", "img01");
+                    img.setAttribute("src", "resources/imgs/img01.jpg");
+                } else {
+                    img.setAttribute("alt", "img0"+(++count));
+                    img.setAttribute("src", "resources/imgs/img0"+count+".jpg");
+                }
+            }
+        }
+    </script>
+
+</head>
+<body>
+    
+    <div>
+        <!-- 
+            href에 아무값도 없으면 페이지를 새로고침함
+            #을 써놓을 경우는 새로고침이 아니라 계속 진행
+        -->
+        <a href="#" id="lt">◀</a>
+        <img src="resources/imgs/img01.jpg" alt="img01">
+        <a href="#" id="gt">▶</a>
+    </div>
+
+</body>
+</html>

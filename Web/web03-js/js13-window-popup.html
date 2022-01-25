@@ -19,6 +19,8 @@
             opener.document.getElementsByTagName("h1")[1].innerHTML=val;
 
             // 작업을 수행하고 나면 팝업창을 닫음 => 근데 왜 안 닫힐까 !!!!
+            // 팝업이 아니라 프레임에 생성된 것이라서 안 닫히는 것임 (title을 ""로 바꾸면 닫을 수 있음)
+            // 그리고 self.close도 안되는 이유는 프레임 자체가 내가 아니자나?
             close();
         }
     </script>
