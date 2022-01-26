@@ -20,7 +20,7 @@
 
             $("#confirm").click(function() {
                 $("result").empty();
-                
+
                 var total = 0;
 
                 // checkbox 중 checked 되어있는 요소들을 가지고 와서 (input 태그에서 name이 chk인 애들 중 체크되어 있는 요소를 가져오고)
@@ -42,7 +42,18 @@
                 // id가 result인 요소의 안에 값을 출력하자.
                 $("#result").append(total);
             });
+
+            // 숙제 2 : 모두 선택되어 있으면 name이 all인 체크박스도 체크
+            // 하나라도 체크 해제되면 name이 all인 체크박스 체크 해제
+            $("input[name=chk]").click(function(){
+
+            })
         });
+
+        // 숙제 1
+        function allChk(bool) {
+
+        }
     </script>
 
 </head>
