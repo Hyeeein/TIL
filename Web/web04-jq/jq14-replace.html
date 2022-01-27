@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="resources/js/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(function() {
+            $("button:first").click(function(){
+                // target 앞
+                // replaceWith 뒤에는 function이 들어갈 수 있다
+                // 왜? $("p")에서 이미 만들어진 애를 가져옴. 그래서 뒤에서 결과를 바꿔줄 수 있음
+                $("p").replaceWith("<p><b>replaceWith()</b></p>");
+            });
+            
+            $("button:last").click(function(){
+                // target 뒤
+                // all은 타겟이 만들어진 상태에서 P 태그에 저장
+                // $("<p><b>replaceAll()</b></p>") 안에 function이 만들어지게 되면
+                // function이  언제 만들어질지 모름. 그래서 안되는 것 !
+                $("<p><b>replaceAll()</b></p>").replaceAll("p");
+            })
+        })
+    </script>
+
+</head>
+<body>
+
+    <div>
+        <p>DOM 대체</p>
+    </div>
+
+    <button>바꾸기(replaceWith)</button>
+    <button>바꾸기(replaceAll)</button>
+    
+</body>
+</html>

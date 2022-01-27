@@ -46,13 +46,23 @@
             // 숙제 2 : 모두 선택되어 있으면 name이 all인 체크박스도 체크
             // 하나라도 체크 해제되면 name이 all인 체크박스 체크 해제
             $("input[name=chk]").click(function(){
+                var total = $("input[name=chk]").length;
+                var checked = $("input[name=chk]:checked").length;
 
-            })
+                if (total != checked){
+                    $("input[name=all]").prop("checked", false);
+                } else {
+                    $("input[name=all]").prop("checked", true);
+                }
+
+            });
         });
 
-        // 숙제 1
+        // 숙제 1 : 전체 선택 체크 하면 다 체크, 해제
         function allChk(bool) {
-
+            $("input[name=chk]").each(function(){  // 각각의 속성
+                $(this).prop("checked", bool);
+            })
         }
     </script>
 
@@ -73,7 +83,7 @@
     <fieldset style="width: 300px">
         <legend>체크 여부 확인</legend>
 
-        <input type="checkbox" name="all" onclick="allChk(this.checekd)">전체선택
+        <input type="checkbox" name="all" onclick="allChk(this.checked)">전체선택
         <br>
         <input type="checkbox" name="chk" value="20000"><b>python</b>
         <br>

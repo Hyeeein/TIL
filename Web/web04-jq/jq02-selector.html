@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <!-- 파일을 최신 버전을 사용할 수도 있지만 호환성 때문에 구버전을 사용하기도 함 -->
+    <!-- 파일을 최신 버전을 사용할 수도 있지만 "호환성" 때문에 구버전을 사용하기도 함 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- .css는 return 값이 jQuery이므로, 이어서 .css로 연결해서 쓸 수 있음 -->
     <script>
+        // 왜 '태그 선택' 버튼을 누르면 같이 실행되는거지?
         $(document).ready(function() {
             $("div:eq(0)").css({"border" : "1px solid red", "width" : "400px", "height" : "200px"});
             $("#view").css({"border" : "1px solid red", "width" : "400px", "height" : "100px"});
