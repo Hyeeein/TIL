@@ -39,9 +39,19 @@
             // first() : 현재 위치에 해당하는 가장 첫 번째 엘리먼트 반환
             // $(".active").appendTo(div) : active 클래스를 div 에 붙임 (target이 뒤에 옴)
 
+            /*  1) id가 menu인 모든 값(객체)을 div에 저장
+                2) active라는 속성을 가진 객체를 가져옴. 근데 지금은 없음.
+                
+                3) 근데 여기서 start 버튼을 누르게 되면 active 클래스가 생성 (img 태그 6개에 active 클래스 다 붙음)
+                4) active 클래스인 img 태그들 중에서 첫 번째 사진 선택 => $(".active").first
+                5) 
+
+            */
+            // 2) 
+
             // => 즉, id가 menu인 모든 값(객체)을 div에 저장
-            //    active라는 속성을 가진 객체를 가져옴. 근데 지금은 없음.
-            //    근데 여기서 start 버튼을 누르게 되면, img 태그들에 active 클래스가 다 붙음.
+            //    
+            //    , img 태그들에 active 클래스가 다 붙음.
             //    active 클래스가 있는 애들이 6개가 있는데 first니까 첫번째 사진이 골라짐
 
             //    .appendTo(div)니까 $(".active").first()를 div 자식요소의 맨 뒤에 추가

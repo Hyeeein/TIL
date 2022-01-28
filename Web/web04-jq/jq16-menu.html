@@ -20,8 +20,28 @@
             var $box = $("<div>").addClass("box");  // 변수 이름 $로 시작해도 됨
             $(".sub_menu:first").wrap($box);
             // $(".sub_menu:first")이 요소를 $box로 감싸주세요 (부모 요소가 되어주세요)
+
+            $(".sub_menu").click(function(){
+                $(".sub_menu").each(function(){
+                    if($(this).parent().is(".box")){  // $(this) : sub_menu를 가진 애들 전부
+                        $(this).unwrap(".box");
+                    }
+                });
+
+                $(this).wrap($box);  // $(this) : 클릭 이벤트가 발생한 애 (위의 $(this)와 구분!)
+            });
+            // 클릭했을 때, 하나하나 조회하면서 각각의 서브메뉴 하나가 자신의 부모에 .box가 있으면 unwrap (없애라)
+            // 다 끝나고 클릭한 것 wrap으로 감싸기
+
+            $("a").wrapInner("<span></span>");
+            // 해당 a의 자식 요소를 <span>으로 포장해주세요
+
+            $("pre").wrapAll("<b></b>");
+            // pre 태그 찾아서 <b>로 다 감싸주세요
+
         });
     </script>
+
 </head>
 <body>
 
@@ -31,21 +51,25 @@
         </div>
 
         <div class="sub_menu">
-            <a href="#"><span>훈련검색</span></a>
+            <a href="#">훈련검색</a>
         </div>
 
         <div class="sub_menu">
-            <a href="#"><span>기관검색</span></a>
+            <a href="#">기관검색</a>
         </div>
 
         <div class="sub_menu">
-            <a href="#"><span>질문답변</span></a>
+            <a href="#">질문답변</a>
         </div>
 
         <div class="sub_menu">
-            <a href="#"><span>과정추가</span></a>
+            <a href="#">과정추가</a>
         </div>
     </div>
+
+    <pre>1</pre>
+    <pre>2</pre>
+    <pre>3</pre>
     
 </body>
 </html>
