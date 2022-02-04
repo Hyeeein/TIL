@@ -1,0 +1,52 @@
+# 가상환경
+# 1. virtual environments (venv)
+python -m venv ??
+
+# venv 실행
+# windows
+.\??\Scripts\activate.bat
+# mac
+source ??/bin/activate
+
+# 2. conda 가상환경
+# 설치
+conda create -n myweb python=3.9
+y
+
+conda activate myweb
+
+
+pip install django
+
+cd /workspaces/workspace_django
+
+django-admin startproject mysite
+
+cd mysite
+python manage.py runserver
+
+conda deactivate
+
+conda info --envs
+
+django-admin startproject hello
+
+hello/hello/views.py
+
+cd hello
+python manage.py runserver
+
+python manage.py startapp hello01
+
+hello/hello01/urls.py
+
+python manage.py runserver
+
+
+
+
+
+
+
+
+
