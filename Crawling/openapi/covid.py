@@ -2,7 +2,7 @@ from xml.etree import ElementTree
 import requests
 import re
 
-service_key = '34c8MNnzA9V%2BtCeO0rvwyZfQahA%2BIxt7RXS6H15Zv0mywVaDAmIuJokPNmLeUj%2B0swe3hhar16JpZblz0OPVYQ%3D%3D'
+# service_key = notion에서 확인
 url = f'http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson?ServiceKey={service_key}'
 # print(url)
 
