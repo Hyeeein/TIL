@@ -84,10 +84,10 @@ def getStore(sido_code='', gugun_code=''):
 
 if __name__ == '__main__' :
     print(getSido())
-    sido = input('도시 코드를 입력해 주세요 : ')
-    if sido == '17':
-        print(getStore(sido_code='17', gugun_code=''))
-    else:
-        print(getGuGun(sido))
-        gugun = input('구군 코드를 입력해 주세요 : ')
-        print(getStore(gugun_code=gugun))
+    # sido = input('도시 코드를 입력해 주세요 : ')
+    # if sido == '17':
+    #     print(getStore(sido_code='17', gugun_code=''))
+    # else:
+    #     print(getGuGun(sido))
+    #     gugun = input('구군 코드를 입력해 주세요 : ')
+    #     print(getStore(gugun_code=gugun))
