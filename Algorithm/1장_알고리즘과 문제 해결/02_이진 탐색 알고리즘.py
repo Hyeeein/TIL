@@ -15,10 +15,11 @@ def binarySearch(a, key, left, right):
     else:
         return -1
 
-a = [3, 2, 5, 1, 4]
+# 이진 탐색은 점점 커지는 순서 배열을 가져야 탐색할 수 있다 !!
+a = [1, 2, 3, 4, 5]
 print('배열:', a)
 
 while True:
     num = int(input('원하는 값을 입력하시오: '))
-    print('찾고자 하는 값:', num, ' 위치:', binarySearch(a, num, 0, len(a)))
+    print('찾고자 하는 값:', num, ' 위치:', binarySearch(a, num, 0, len(a))+1)
     print()
