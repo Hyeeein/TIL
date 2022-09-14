@@ -1,2 +1,2 @@
 # TIL
-Today, I learned
+Today, I learned (2022.09.01~)
