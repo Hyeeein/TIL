@@ -22,7 +22,8 @@ def selectionSort(a, n):
         minIndex = i
         for j in range(i+1, n+1):
             if a[minIndex] > a[j]: minIndex = j
-            a[minIndex], a[i] = a[i], a[minIndex]
+        a[minIndex], a[i] = a[i], a[minIndex]
+
 
 # 정렬 함수 오류 검사 함수
 def checkSort(a, n):
@@ -37,7 +38,7 @@ def checkSort(a, n):
 
 # 선택 정렬 실행 시간 출력 (원소의 개수 5000개)
 # N 값은 10000, 15000, 20000으로 바꿔서 돌리기 (추가 경우의 수 3가지)
-N = 20000
+N = 10
 a = []; b= []; c = []
 a.append(None); b.append(None); c.append(None)
 
