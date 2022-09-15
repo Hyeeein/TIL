@@ -31,15 +31,72 @@ def checkSort(a, n):
     if isSorted: print('정렬 완료')
     else: print('정렬 오류 발생')
 
-# 원소의 개수가 5000개일 때, 버블 정렬 실행시간 출력
+
+# 버블 정렬 실행 시간 출력 (원소의 개수 5000개)
+# N 값은 10000, 15000, 20000으로 바꿔서 돌리기 (추가 경우의 수 3가지)
 N = 5000
-a = []
-a.append(None)
+a = []; b= []; c = []
+a.append(None); b.append(None); c.append(None)
+
+
+# (1) 배열이 정렬된 순
 for i in range(N):
-    a.append(random.randint(1, N))
+    a.append(i)
 
 start_time = time.time()
 bubbleSort(a, N)
 end_time = time.time() - start_time
-print('버블 정렬의 실행 시간 (N = %d) : %0.3f' % (N, end_time))
+
+print('버블 정렬의 실행 시간 (N = %d) : %0.3f' %(N, end_time))
 checkSort(a, N)
+
+# ------------------------------------------------------------
+
+# (2) 배열이 역순
+for i in range(N, 0, -1):
+    b.append(i)
+
+start_time = time.time()
+bubbleSort(b, N)
+end_time = time.time() - start_time
+
+print('버블 정렬의 실행 시간 (N = %d) : %0.3f' %(N, end_time))
+checkSort(b, N)
+
+# ------------------------------------------------------------
+
+# (3) 배열이 랜덤한 순
+for i in range(N):
+    c.append(random.randint(1, N))
+
+start_time = time.time()
+bubbleSort(c, N)
+end_time = time.time() - start_time
+
+print('버블 정렬의 실행 시간 (N = %d) : %0.3f' %(N, end_time))
+checkSort(c, N)
+
+
+'''
+N이 5000인 경우
+
+
+'''
+
+'''
+N이 10000인 경우
+
+'''
+
+'''
+N이 15000인 경우
+
+'''
+
+'''
+N이 20000인 경우
+
+'''
+
+
+# 결론 : 

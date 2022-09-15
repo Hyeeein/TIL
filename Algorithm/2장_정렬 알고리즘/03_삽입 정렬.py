@@ -53,3 +53,27 @@ insertionSort(a, N)
 end_time = time.time() - start_time
 print('삽입 정렬의 실행 시간 (N = %d) : %0.3f' %(N, end_time))
 checkSort(a, N)
+
+'''
+N이 5000인 경우
+
+
+'''
+
+'''
+N이 10000인 경우
+
+'''
+
+'''
+N이 15000인 경우
+
+'''
+
+'''
+N이 20000인 경우
+
+'''
+
+
+# 결론 : 
