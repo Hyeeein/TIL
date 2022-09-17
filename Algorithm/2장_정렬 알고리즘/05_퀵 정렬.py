@@ -39,13 +39,15 @@
 ### 퀵 정렬 프로그램
 
 def quickSort(a, l, r):
-    if r > 1:
+    if r > l:
         v, i, j = a[r], l-1, r
         while True:
             i += 1
-            while a[i] < v: i += 1
+            while a[i] < v: 
+                i += 1
             j -= 1
-            while a[j] > v: j -= 1
+            while a[j] > v: 
+                j -= 1
             if i >= j:
                 break
             a[i], a[j] = a[j], a[i]
