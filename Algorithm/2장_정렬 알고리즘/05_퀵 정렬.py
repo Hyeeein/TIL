@@ -64,15 +64,54 @@ def checkSort(a, n):
     if isSorted: print('정렬 완료')
     else: print('정렬 오류 발생')
 
+
 import random, time
 
-N = 100000
-a = []
-a.append(-1)
+# 퀵 정렬 실행 시간 출력
+# N 값 추가 경우의 수 5가지
+N = 1000
+a = []; b= []; c = []
+a.append(-1); b.append(-1); c.append(-1)
+
+
+# (1) 배열이 정렬된 순
 for i in range(N):
-    a.append(random.randint(1, N))
+    a.append(i)
+
 start_time = time.time()
 quickSort(a, 1, N)
 end_time = time.time() - start_time
-print('퀵 정렬의 실행 시간 (N=%d) : %0.3f' %(N, end_time))
+
+print('퀵 정렬의 실행 시간 (N = %d) : %0.3f' %(N, end_time))
 checkSort(a, N)
+
+# ------------------------------------------------------------
+
+# (2) 배열이 역순
+for i in range(N, 0, -1):
+    b.append(i)
+
+start_time = time.time()
+quickSort(b, 1, N)
+end_time = time.time() - start_time
+
+print('퀵 정렬의 실행 시간 (N = %d) : %0.3f' %(N, end_time))
+checkSort(b, N)
+
+# ------------------------------------------------------------
+
+# (3) 배열이 랜덤한 순
+for i in range(N):
+    c.append(random.randint(1, N))
+
+start_time = time.time()
+quickSort(c, 1, N)
+end_time = time.time() - start_time
+
+print('퀵 정렬의 실행 시간 (N = %d) : %0.3f' %(N, end_time))
+checkSort(c, N)
+
+
+'''
+
+'''
