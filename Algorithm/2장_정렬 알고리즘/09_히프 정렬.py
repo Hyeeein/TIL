@@ -10,6 +10,7 @@
 #     }
 # end heapSort()
 
+### 히프화 알고리즘
 # heapify(a[], h, m)
 #     v <- a[h];
 #     for (j <- 2 * h; j <= m; j <- 2*j) do {
