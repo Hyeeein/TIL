@@ -121,27 +121,27 @@ checkSort(a, N)
 
 # # (2) 역순 배열
 # for i in range(N, 0, -1):
-#     b.append(i)
+#     a.append(i)
 
-# b_copy = b.copy()
+# b = a.copy()
 # start_time = time.time()
-# mergeSort(b, 1, N)
+# mergeSort(a, 1, N)
 # end_time = time.time() - start_time
 
 # print('합병 정렬의 실행 시간 (N = %d) : %0.3f' % (N, end_time))
-# checkSort(b, N)
+# checkSort(a, N)
 
 # # ------------------------------------------------------------
 
 # # (3) 난수 배열
 # for i in range(N):
-#     c.append(random.randint(1, N))
+#     a.append(random.randint(1, N))
 
-# c_copy = c.copy()
+# b = a.copy()
 # start_time = time.time()
-# mergeSort(c, 1, N)
+# mergeSort(a, 1, N)
 # end_time = time.time() - start_time
 
 # print('합병 정렬의 실행 시간 (N = %d) : %0.3f' % (N, end_time))
-# checkSort(c, N)
+# checkSort(a, N)
 
