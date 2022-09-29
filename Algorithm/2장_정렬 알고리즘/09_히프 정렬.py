@@ -55,8 +55,8 @@ import random, time
 
 # N 값 10만부터 20만 단위로 5번 측정 (90만까지)
 N = 100000
-a = []
-a.append(None)
+a = []; b = []; c = []
+a.append(None); b.append(None); c.append(None)
 
 # (1) 정렬된 배열
 for i in range(N):
@@ -71,26 +71,26 @@ checkSort(a, N)
 
 # ------------------------------------------------------------
 
-# # (2) 역순 배열
-# for i in range(N, 0, -1):
-#     a.append(i)
+# (2) 역순 배열
+for i in range(N, 0, -1):
+    b.append(i)
 
-# start_time = time.time()
-# heapSort(a, N)
-# end_time = time.time() - start_time
+start_time = time.time()
+heapSort(b, N)
+end_time = time.time() - start_time
 
-# print('히프 정렬의 실행 시간 (N = %d) : %0.3f' % (N, end_time))
-# checkSort(a, N)
+print('히프 정렬의 실행 시간 (N = %d) : %0.3f' % (N, end_time))
+checkSort(b, N)
 
-# # ------------------------------------------------------------
+# ------------------------------------------------------------
 
-# # (3) 난수 배열
-# for i in range(N):
-#     a.append(random.randint(1, N))
+# (3) 난수 배열
+for i in range(N):
+    c.append(random.randint(1, N))
 
-# start_time = time.time()
-# heapSort(a, N)
-# end_time = time.time() - start_time
+start_time = time.time()
+heapSort(c, N)
+end_time = time.time() - start_time
 
-# print('히프 정렬의 실행 시간 (N = %d) : %0.3f' % (N, end_time))
-# checkSort(a, N)
+print('히프 정렬의 실행 시간 (N = %d) : %0.3f' % (N, end_time))
+checkSort(c, N)

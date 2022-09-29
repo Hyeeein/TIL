@@ -46,17 +46,18 @@
 
 def mergeSort(a, l, r):
     if r > l:
-        mid = int((r + l) / 2)
+        mid = int((r+l)/2)
         mergeSort(a, l, mid)
-        mergeSort(a, mid + 1, r)
-        # merge(a, l, mid, r)
+        mergeSort(a, mid+l, r)
 
-        for i in range(mid + 1, 1, -1):
+        for i in range(mid+1, 1, -1):
             b[i-1] = a[i-1]
         i -= 1
+
         for j in range(mid, r):
-            b[r + mid - j] = a[j+1]
+            b[r+mid-j] = a[j+1]
         j += 1
+
         for k in range(l, r+1):
             if b[i] < b[j]:
                 a[k] = b[i]
@@ -101,7 +102,7 @@ def checkSort(a, n):
 import random, time
 
 # N 값 10만부터 20만 단위로 5번 측정 (90만까지)
-N = 100000
+N = 900000
 a = []
 a.append(None)
 
@@ -119,29 +120,29 @@ checkSort(a, N)
 
 # ------------------------------------------------------------
 
-# # (2) 역순 배열
-# for i in range(N, 0, -1):
-#     a.append(i)
+# (2) 역순 배열
+for i in range(N, 0, -1):
+    a.append(i)
 
-# b = a.copy()
-# start_time = time.time()
-# mergeSort(a, 1, N)
-# end_time = time.time() - start_time
+b = a.copy()
+start_time = time.time()
+mergeSort(a, 1, N)
+end_time = time.time() - start_time
 
-# print('합병 정렬의 실행 시간 (N = %d) : %0.3f' % (N, end_time))
-# checkSort(a, N)
+print('합병 정렬의 실행 시간 (N = %d) : %0.3f' % (N, end_time))
+checkSort(a, N)
 
-# # ------------------------------------------------------------
+# ------------------------------------------------------------
 
-# # (3) 난수 배열
-# for i in range(N):
-#     a.append(random.randint(1, N))
+# (3) 난수 배열
+for i in range(N):
+    a.append(random.randint(1, N))
 
-# b = a.copy()
-# start_time = time.time()
-# mergeSort(a, 1, N)
-# end_time = time.time() - start_time
+b = a.copy()
+start_time = time.time()
+mergeSort(a, 1, N)
+end_time = time.time() - start_time
 
-# print('합병 정렬의 실행 시간 (N = %d) : %0.3f' % (N, end_time))
-# checkSort(a, N)
+print('합병 정렬의 실행 시간 (N = %d) : %0.3f' % (N, end_time))
+checkSort(a, N)
 

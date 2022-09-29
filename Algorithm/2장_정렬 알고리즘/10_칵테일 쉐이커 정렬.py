@@ -4,35 +4,77 @@
 # 그 다음에는 가장 작은 원소를 가장 왼쪽 위치로 보내면서 수행 (= 양방향 버블 정렬)
 
 ### 칵테일 세이커 알고리즘 (ADL)
-# Shaker_Sort(arr[], N)Sort  ← 1;// 1 = TRUE , 0 = FALSEleft  ← N;// N = 데이터 개수right ← 1;while(right > left) do {for (i ← right; I < left; i ← i+1) do {if (arr[i] > arr[i+1]) then {temp ← arr[i];arr[i] ← arr[i+1];arr[i+1] ← temp;}}left ← left – 1;for (i ← left; i > right; i ← i-1) do {if (arr[i] < arr[i-1]) then {temp ← arr[i];arr[i] ← arr[i-1];arr[i-1] ← temp;}}right ← right + 1;}end Shaker_Sort(arr[], N)
-# 출처: https://ikso2000.tistory.com/49 [띠그랭                      :티스토리]
 
 ### 칵테일 쉐이커 정렬 파이썬 프로그래밍
-def cocktailSort(arr):
-    a = -1; b = len(arr) + 1
+def cocktailShakerSort(arr, n):
+    r = n; l = 1; i = 1
 
-    swapped = True # True면 정방향, False면 역방향
+    while l < r:
+        if i % 2 == 1:
+            for j in range(l+1, r+1):
+                if arr[j] < arr[j-1]:
+                    arr[j], arr[j-1] = arr[j-1], arr[j]
+            r -= 1
+        else:
+            for k in range(r, l, -1):
+                if arr[k] < arr[k-1]:
+                    arr[k], arr[k-1] = arr[k-1], arr[k]
+            l += 1
+        # print(f"{i}번째 패스 종료 후 arr = {arr}")
+        i += 1
+    return arr
 
-    # 방향이 정방향으로 가고 있을 경우
-    while swapped == True:
-        swapped = False
+def checkSort(a, n):
+    isSorted = True
+    for i in range(1, n):
+        if (a[i] > a[i+1]): isSorted = False
+        if (not isSorted): break
+    if isSorted: print('정렬 완료')
+    else: print('정렬 오류 발생')
 
-        for i in range(a, b):
-            if arr[i] > arr[i+1]:
-                arr[i], arr[i+1] = arr[i+1], arr[i]
-                swapped = True
-        if swapped == False: break
+import random, time
 
-        swapped = False
-        b -= 1
+# N 값 5000부터 5천 단위로 4번 측정 (2만까지)
+N = 20000
+a = []
+a.append(None)
 
-        for i in range(b-1, a-1, -1):
-            if arr[i] > arr[i+1]:
-                arr[i], arr[i+1] = arr[i+1], arr[i]
-                swapped = True
-        
-        a += 1
+# (1) 정렬된 배열
+for i in range(N):
+    a.append(i)
 
+start_time = time.time()
+cocktailShakerSort(a, N)
+end_time = time.time() - start_time
+
+print('칵테일 쉐이커 정렬의 실행 시간 (N = %d) : %0.3f' % (N, end_time))
+checkSort(a, N)
+
+# ------------------------------------------------------------
+
+# (2) 역순 배열
+for i in range(N, 0, -1):
+    a.append(i)
+
+start_time = time.time()
+cocktailShakerSort(a, N)
+end_time = time.time() - start_time
+
+print('칵테일 쉐이커 정렬의 실행 시간 (N = %d) : %0.3f' % (N, end_time))
+checkSort(a, N)
+
+# ------------------------------------------------------------
+
+# (3) 난수 배열
+for i in range(N):
+    a.append(random.randint(1, N))
+
+start_time = time.time()
+cocktailShakerSort(a, N)
+end_time = time.time() - start_time
+
+print('칵테일 쉐이커 정렬의 실행 시간 (N = %d) : %0.3f' % (N, end_time))
+checkSort(a, N)
 
 
 # 버블 정렬과의 차이점 : 정렬 방향이 한 방향이 아니라, 양방향으로 바뀌면서 속도가 빨라진다
