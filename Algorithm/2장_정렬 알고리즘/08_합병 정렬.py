@@ -102,15 +102,15 @@ def checkSort(a, n):
 import random, time
 
 # N 값 10만부터 20만 단위로 5번 측정 (90만까지)
-N = 900000
-a = []
-a.append(None)
+N = 100000
+a = []; b = []; c = []
+a.append(None); b.append(None); c.append(None)
 
 # (1) 정렬된 배열
 for i in range(N):
     a.append(i)
 
-b = a.copy()
+a_copy = a.copy()
 start_time = time.time()
 mergeSort(a, 1, N)
 end_time = time.time() - start_time
@@ -122,27 +122,27 @@ checkSort(a, N)
 
 # (2) 역순 배열
 for i in range(N, 0, -1):
-    a.append(i)
+    b.append(i)
 
-b = a.copy()
+b_copy = b.copy()
 start_time = time.time()
-mergeSort(a, 1, N)
+mergeSort(b, 1, N)
 end_time = time.time() - start_time
 
 print('합병 정렬의 실행 시간 (N = %d) : %0.3f' % (N, end_time))
-checkSort(a, N)
+checkSort(b, N)
 
 # ------------------------------------------------------------
 
 # (3) 난수 배열
 for i in range(N):
-    a.append(random.randint(1, N))
+    c.append(random.randint(1, N))
 
-b = a.copy()
+c_copy = c.copy()
 start_time = time.time()
-mergeSort(a, 1, N)
+mergeSort(c, 1, N)
 end_time = time.time() - start_time
 
 print('합병 정렬의 실행 시간 (N = %d) : %0.3f' % (N, end_time))
-checkSort(a, N)
+checkSort(c, N)
 

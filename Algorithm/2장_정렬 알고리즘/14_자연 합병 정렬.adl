@@ -1,0 +1,20 @@
+
+
+// 입력 배열에서 런을 구하는 makeRun() 함수에 대한 ADL
+makeRun(a[], n)
+    i <- 1;
+    r <- []; // 공백 리스트
+
+    while () do {
+        t <- [];
+        리스트 t에 a[i] 추가;
+        
+        while () do {
+            ;
+            ;
+        }
+        ;
+        ;
+    }
+    return r;
+end makeRun()
