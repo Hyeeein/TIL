@@ -5,3 +5,12 @@ fatal: unable to access 'https://github.com/Hyeeein/TIL/': Could not resolve hos
 ```
 
 - 인터넷 연결이 안된지 다시 확인 => 이번에는 와이파이 다시 연결하니까 됐음
+
+
+
+2. git master Merging 충돌 해결하기
+
+https://velog.io/@sg-moomin/GIT-master-Merging-%EC%B6%A9%EB%8F%8C-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95
+
+
+
