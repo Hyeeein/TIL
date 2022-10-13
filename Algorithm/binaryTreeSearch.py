@@ -6,21 +6,22 @@ class node:
 
 class Dict:
     x = p = node
+
     z = node(key=0, left=0, right=0)
     z.left = z
     z.right = z
     head = node(key=0, left=0, right=z)
+            
 
     def search(self, search_key):
         x = self.head.right
         while x != self.z:
-	 	# 탐색 알고리즘
-            if x.key == search_key:
+            if search_key == x.key:
                 return x.key
-            if x.key > search_key:
-                x = x.left
+            if search_key > x.key:
+                x=x.right
             else:
-                x = x.right
+                x=x.left
         return -1
 
     def insert(self, v):
@@ -38,22 +39,35 @@ class Dict:
             p.left = x
         else:
             p.right = x
-        
-    # 이진 탐색 트리에 대한 정확성 검사
-    # 참고 : https://dpsc615.tistory.com/89
-    def check(self, search_key):
-        if (search_key != null and )
 
+    def check(self, search_key):
+         if search_key<11:
+             print("key :",search_key,end=" ")
+         x = p = self.head.right
+         
+         while x.key != search_key:
+             p=x
+             if x.key < search_key:
+                 x = x.right
+             else:
+                 x = x.left
+         if search_key<11:
+             print("parents :",p.key)
+            
+                
 
 import random, time
-
-N = 8
+N = 100000
 key = list(range(1, N + 1))
 s_key = list(range(1, N + 1))
 random.shuffle(key)
 d = Dict()
 for i in range(N):
     d.insert(key[i])
+#for i in range(1,N+1):
+#    d.insert(i)
+for i in range(1,N+1):
+    d.check(i)
 start_time = time.time()
 for i in range(N):
     result = d.search(s_key[i])
@@ -62,6 +76,3 @@ for i in range(N):
 end_time = time.time() - start_time
 print('이진 트리 탐색의 실행 시간 (N = %d) : %0.3f'%(N, end_time))
 print('탐색 완료')
-
-# 이진 탐색 트리가 제대로 생성되었는지 검사
-print(key)
