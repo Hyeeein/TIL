@@ -42,7 +42,18 @@ class Dict:
     # 이진 탐색 트리에 대한 정확성 검사
     # 참고 : https://dpsc615.tistory.com/89
     def check(self, search_key):
-        if (search_key != null and )
+         if search_key<11:
+             print("key :",search_key,end=" ")
+         x = p = self.head.right
+         
+         while x.key != search_key:
+             p=x
+             if x.key < search_key:
+                 x = x.right
+             else:
+                 x = x.left
+         if search_key<11:
+             print("parents :",p.key)
 
 
 import random, time
