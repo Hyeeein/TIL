@@ -39,6 +39,7 @@ class Dict:
                 x = x.right
             if x.left.color and x.right.color:
                 self.split(x, p, g, gg, v)
+                
         x = node(color=red, key=v, left=self.z, right=self.z)
         if p.key > v:
             p.left = x
@@ -80,19 +81,26 @@ class Dict:
             y.right = gc
         return gc
 
-    def check(self, search_key):
-         if search_key < 11:
-             print("key :",search_key, end=" ")
-         x = p = self.head.right
-         
-         while x.key != search_key:
-             p=x
-             if x.key < search_key:
-                 x = x.right
-             else:
-                 x = x.left
-         if search_key < 11:
-             print("parents :", p.key)
+    def check(self, search_key):    
+        x = self.head.right
+        cur = x
+        while (x != self.z):
+
+            if x.key > search_key:
+                if(x.color):
+                    print('key : ', x.key, ', parents : ', cur.key, ', color : red')
+                else:
+                    print('key : ', x.key, ', parents : ', cur.key, ', color : black')
+                cur = x
+                x = x.left
+            else:
+                if(x.color):
+                    print('key : ', x.key, ', parents : ', cur.key, ', color : red')
+                else:
+                    print('key : ', x.key, ', parents : ', cur.key, ', color : black')
+                cur = x
+                x = x.right
+        return -1
 
 
 # import random, time

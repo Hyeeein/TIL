@@ -98,18 +98,18 @@ class Dict:
 
 
     def check(self, search_key):
-         if search_key<11:
-             print("key :",search_key,end=" ")
-         x = p = self.head.right
-         
-         while x.key != search_key:
-             p=x
-             if x.key < search_key:
-                 x = x.right
-             else:
-                 x = x.left
-         if search_key<11:
-             print("parents :",p.key)
+        x = self.node
+        cur = x
+        while x is not None:
+            if x.key > search_key:
+                print('key : ', x.key, ', parents : ', cur.key)
+                cur = x
+                x = x.left.node
+            else:
+                print('key : ', x.key, ', parents : ', cur.key)
+                cur = x
+                x = x.right.node
+        return -1
 
 
 import random, time
