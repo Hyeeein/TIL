@@ -1,3 +1,13 @@
+# 알고리즘
+# sequentialSearch(a[], search_key, n)
+#     i <- 0;
+#     while (i <= n and a[i].key = search_key) do i <- i + 1;
+#     if (i = n + 1) then return -1;
+#     else return i;
+# end sequentialSearch()
+
+
+# 파이썬 프로그래밍
 class node:
     def __init__(self, key=None):
         self.key = key

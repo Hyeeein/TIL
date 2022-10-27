@@ -61,7 +61,7 @@ class Dict:
             p.left = x
 
     def check(self, v):
-        
+        return v
 
 import random, time
 

@@ -1,3 +1,10 @@
+### 교환 정렬 알고리즘
+# exchangeSort(a[], n)
+#     for (i <- 1; i < n; i <- i + 1) do
+#         for (j <- i + 1; j <= n; j <- j + 1) do
+#             if (a[i] < a[j]) then a[i]와 a[j]를 교환;
+# end exchangeSort()
+
 ### 교환 정렬 파이썬 프로그래밍
 
 def exchangeSort(arr, n):

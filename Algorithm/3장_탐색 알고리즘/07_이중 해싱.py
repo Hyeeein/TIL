@@ -1,3 +1,31 @@
+# 알고리즘
+# insert(a[], v)
+#     x <- hash(v);
+#     u <- hash2(v);
+#     while (a[x] != -1) do
+#         x <- (x + u) % M;
+#     a[x] <- v;
+# end insert()
+
+# search(a[], v)
+#     x <- hash(v);
+#     u <- hash2(v);
+#     while (a[x] != -1) do
+#         if (v == a[x]) then
+#             return a[x];
+#         else (x <- (x + u) % M);
+# end search()
+
+# hash(v)
+#     return v mod M;
+# end hash()
+
+# hash2(v)
+#     return 64 - (v mod 64);
+# end hash2()
+
+
+# 파이썬 프로그래밍
 class Dict:
     def __init__(self):
         Dict.a = [-1] * M

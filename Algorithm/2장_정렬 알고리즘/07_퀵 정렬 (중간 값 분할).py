@@ -41,7 +41,7 @@ def checkSort(a, n):
     else: print('정렬 오류 발생')
 
 
-import random, timeㅋ
+import random, time
 
 a = []
 N = 100000

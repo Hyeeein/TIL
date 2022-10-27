@@ -1,3 +1,14 @@
+# 알고리즘
+# binaryTreeSearch(B, search_key)
+#     p <- B;
+#     if (p = null) then return null;
+#     if (p.key = search_key) then return p;
+#     if (p.key < search_key) then
+#         return biaryTreeSearch(p.right, search_key);
+#     else return binaryTreeSearch(p.left, search_key);
+# end binaryTreeSearch()
+
+# 파이썬 프로그래밍
 class node:
     def __init__(self, key=None, left=None, right=None):
         self.key = key

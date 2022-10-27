@@ -1,3 +1,17 @@
+# 알고리즘
+# binarySearch(a[] search_key, n)
+#     left <- 0; right <- n-1;
+#     whlie (right >= left) do {
+#         mid <- (left + right) / 2;
+#         if ((a[mid].key) = search_key) then return mid;
+#         if ((a[mid].key > search_key)) then right <- mid-1;
+#         else left <- mid + 1;
+#     }
+#     return -1;      // key 값이 존재하지 않음
+# end binarySearch()
+
+
+# 파이썬 프로그래밍
 class node:
     def __init__(self, key=None):
         self.key = key

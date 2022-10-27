@@ -1,3 +1,19 @@
+### 계수 정렬 알고리즘
+# countingSort(a[], n, m)
+#     for (j <- 1; j <= m; j <- j + 1) do
+#         count[j] <- 0;
+#     for (i <- 1; i <= n; i <- i + 1) do
+#         count[a[i]] <- count[a[i]] + 1;
+#     for (j <- 2; j <= m; j <- j + 1) do
+#         count[j] <- count[j-1] + count[j];
+#     for (i <- N; i >= 1; i <- i + 1) do
+#         b[count[a[i]]] <- a[i]
+#         count[a[i]] <- count[a[i]] - 1;
+#     }
+#     for (i <- 1; i <= n; i <- i + 1) do
+#         a[i] <- b[i]
+# end countingSort()
+
 ### 계수 정렬 파이썬 프로그래밍
 
 def countingSort(a, n, m):

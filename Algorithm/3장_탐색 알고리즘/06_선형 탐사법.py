@@ -1,3 +1,24 @@
+# 알고리즘
+# insert(a[], v)
+#     x <- hash(v);
+#     while (a[x] != -1) do
+#         x <- (x + 1) % M;
+#     a[x] <- v;
+# end insert()
+
+# search(a[], v)
+#     x <- hash(v);
+#     while (a[x] != -1) doc
+#         if (v == a[x]) then
+#             return a[x];
+#         else (x <- (x + 1) % M);
+# end search()
+
+# hash(v)
+#     return v mod M;
+# end hash()
+
+# 프로그래밍
 class Dict:
     def __init__(self):
         Dict.a = [-1] * M

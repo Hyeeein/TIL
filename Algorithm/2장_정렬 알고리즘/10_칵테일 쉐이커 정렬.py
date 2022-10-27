@@ -4,6 +4,22 @@
 # 그 다음에는 가장 작은 원소를 가장 왼쪽 위치로 보내면서 수행 (= 양방향 버블 정렬)
 
 ### 칵테일 세이커 알고리즘 (ADL)
+# cocktailShakerSort(a[], n)
+#     d <- true; i <- 1; k <- n;
+#     while (i < k) do {
+#         if (d = true) then {
+#             for (j <- i + 1; j <= k; j <- j + 1) do
+#                 if (a[j] < a[j-1]) then a[j]와 a[j-1]을 교환;
+#             k <- k -1;
+#         }
+#         else {
+#             for (l <- k; l > 1; l <- l-1) do
+#                 if (a[l] < a[l-1]) then a[l]과 a[l-1]을 교환;
+#             i <- i + 1;
+#         }
+#         d <- not d;
+#     }
+# end cocktailShakerSort()
 
 ### 칵테일 쉐이커 정렬 파이썬 프로그래밍
 def cocktailShakerSort(arr, n):
