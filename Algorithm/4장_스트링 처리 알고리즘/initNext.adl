@@ -1,0 +1,13 @@
+// 재시작 위치를 구하는 알고리즘
+
+initNext(p[])
+    M <- 패턴의 길이;
+    next[0] <- 1;
+    for (i <- 0, j <- -1; j < M; i <- i + 1, j <- j + 1) do {
+        next[i] <- j;
+
+        // 일치하는게 없으면 아래쪽 패턴을 이동
+        while ((j >= 0) and (p[i] != p[j])) do
+            j <- next[j];
+    }
+end initNext()

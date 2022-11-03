@@ -1,0 +1,13 @@
+// KMP ADL
+
+KMP(p[], t[])
+    M <- 패턴의 길이;
+    N <- 텍스트의 길이;
+    initNext(p);
+
+    for (i <- 0, j <- 0; j < M and i < N; i <- i + 1, j <- j + 1) do
+        while ((j >= 0) and (t[i] != p[j])) do
+            j <- next[j];
+    if (j = M) then return i - M;
+    else return i;
+end KMP()

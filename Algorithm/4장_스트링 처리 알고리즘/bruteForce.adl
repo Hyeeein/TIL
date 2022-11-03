@@ -1,0 +1,16 @@
+// 직선적 알고리즘 ADL
+
+bruteForce(p[], t[])  // p는 패턴, t는 텍스트
+    M <- 패턴의 길이;
+    N <- 텍스트의 길이;
+
+    // i는 텍스트, j는 패턴 배열에서 움직임
+    for (i <- 0, j <- 0 ; j < M and i < N ; i <- i + 1, j <- j + 1) do {
+        if (t[i] != p[j]) then {
+            i <- i - j;
+            j <- -1;
+        }
+    }
+    if (j = M) then return i - M;
+    else return i;
+end bruteForce()
