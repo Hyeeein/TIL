@@ -1,0 +1,15 @@
+// 패턴이 내장된 KMP 알고리즘
+
+KMP(t[])
+    i <- -1;
+sm : i <- i + 1;
+s0 : if (t[i] != '1') then goto sm; i <- i + 1;
+s1 : if (t[i] != '0') then goto s0; i <- i + 1;
+s2 : if (t[i] != '1') then goto s0; i <- i + 1;
+s3 : if (t[i] != '0') then goto s1; i <- i + 1;
+s4 : if (t[i] != '0') then goto s2; i <- i + 1;
+s5 : if (t[i] != '1') then goto s0; i <- i + 1;
+s6 : if (t[i] != '1') then goto s1; i <- i + 1;
+s7 : if (t[i] != '1') then goto s1; i <- i + 1;
+    return i - 8;
+end KMP()
