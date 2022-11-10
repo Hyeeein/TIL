@@ -45,8 +45,8 @@ while True:
     else: break
         
 # 마지막 패턴을 인식하지 못하면 텍스트 마지막에 널 문자 추가
-# text = text + '\0'
-# print('널 문자를 추가한 text:', text, '(널 문자가 있는지 확인)')
+text = text + '\0'
+print('널 문자를 추가한 text:', text, '(널 문자가 있는지 확인)')
 
 print('총 비교횟수:', count)
 print('스트링 탐색 종료')
