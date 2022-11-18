@@ -1,7 +1,15 @@
 scan = -1
 
 # (A*B+AC)D
-ch = [' ', 'A', ' ', 'B', ' ', ' ', 'A', 'C', 'D', ' ']
+# ch = [' ', 'A', ' ', 'B', ' ', ' ', 'A', 'C', 'D', ' ']
+
+# (A+B)*C
+ch = []
+
+# (AB* + A*D)E
+
+# (A+B)*(C+D)*E
+
 next1 = [5, 2, 3, 4, 8, 6, 7, 8, 9, 0]
 next2 = [5, 2, 1, 4, 8, 2, 7, 8, 9, 0]
 
@@ -44,11 +52,40 @@ class Deque:
             return False
 
     def prDq(self, size):
-        pass
-
+        for i in range(size):
+            print(self.deque[i], end=' ')
+        print()
 
 def match(t):
-    pass
+    dq = Deque(100)
+    j = 0
+    N = len(t) - 1
+    state = next1[0]
+    dq.insertLast(scan)
+    
+    while state:
+        if state == scan:
+            j += 1
+            if dq.isEmpty():
+                dq.insertFirst(next1[0]);
+            dq.insertLast(scan)
+        elif ch[state] == t[j]:
+            dq.insertLast(next1[state])
+        elif ch[state] == ' ':
+            n1 = next1[state]
+            n2 = next2[state]
+            dq.insertFirst(n1)
+            
+            if n1 != n2:
+                dq.insertFirst(n2)
+            
+        if dq.isEmpty(): return j
+        if j > N: return 0
+        state = dq.deleteFirst()
+        if dq.checkDq():
+            state = dq.deleteFirst()
+    return j -1
+
 
 text = 'AABD' + '\0'
 #text = 'CDAABCAAABD' + '\0'

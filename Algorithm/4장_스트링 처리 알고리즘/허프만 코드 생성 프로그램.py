@@ -46,6 +46,7 @@ def index(c):
 def makeHuffman(t, m):
     for i in range(m):
         count[index(t[i])] += 1
+
     for i in range(27):
         if count[i]:
             pq.insert(count[i], i)
@@ -60,6 +61,7 @@ def makeHuffman(t, m):
         if not pq.isEmpty():
             pq.insert(count[i], i)
         i += 1
+    
     for k in range(27):
         i = x = 0
         j = 1
@@ -74,6 +76,22 @@ def makeHuffman(t, m):
                 i += 1
         code[k] = x
         length[k] = i
+    
+    # count[k] 출력 코드 추가
+    print('count[k]:', count[0:44])
+    print()
+
+    # dad[k] 출력 코드 추가
+    print('dad[k]:', dad[0:44])
+    print()
+
+    # code[k] 출력 코드 추가
+    print('code[k]:', code)
+    print()
+
+    # length[k] 출력 코드 추가
+    print('length[k]:', length)
+    print()
 
 def encode(t, m):
     huffman_code = ''
@@ -88,17 +106,36 @@ def char(k):
     if k == 0: return chr(32)
     else: return chr(k+64)
 
+# 부모 노드를 찾아내는 함수
 def findDad(max_i, k):
     for i in range(max_i):
         if dad[i] == k:
             return i
 
-def decode(h):
-    pass
+# 디코딩 하는 함수
+def decode(h):  # h는 변환된 이진수들
+    
+    # 이진수를 리스트 안에 저장
+    d_tmp = []
+    for i in range(len(h)):
+        d_tmp.append(h[i])
 
+    # 저장된 이진수 왼쪽부터 순차적으로 진행
+    for i in d_tmp:
+        
+    
+    # dad[k]가 0인 k를 찾으면 43
 
-text = 'VISION QUESTION ONION CAPTION GRADUATION EDUCATION'
-#text = 'A SIMPLE STRING TO BE ENCODED USING A MINIMAL NUMBER OF BITS'
+    # 1이니까 dad[k]를 음수로 바꾸고 -43인 것을 찾으면 42
+
+    # 1이니까 dad[k]를 음수로 바꾸고 -42인 것을 찾으면 40
+
+    # 0이니까 dad[k]가 40인 것을 찾으면 36
+
+    # dad[k]가 36일 때, k는 5 => 알파벳 E
+
+# text = 'VISION QUESTION ONION CAPTION GRADUATION EDUCATION'
+text = 'A SIMPLE STRING TO BE ENCODED USING A MINIMAL NUMBER OF BITS'
 count = [0]*100
 dad = [0]*100
 length = [0]*27
@@ -108,5 +145,5 @@ pq = PQ()
 makeHuffman(text, M)
 h = encode(text, M)
 print(h)
-#d = decode(h)
-#print(d)
+d = decode(h)
+print(d)
