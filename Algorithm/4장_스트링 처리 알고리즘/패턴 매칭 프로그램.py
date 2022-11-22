@@ -2,16 +2,21 @@ scan = -1
 
 # (A*B+AC)D
 # ch = [' ', 'A', ' ', 'B', ' ', ' ', 'A', 'C', 'D', ' ']
+# next1 = [5, 2, 3, 4, 8, 6, 7, 8, 9, 0]
+# next2 = [5, 2, 1, 4, 8, 2, 7, 8, 9, 0]
 
 # (A+B)*C
-ch = []
+ch = [' ', ' ', 'A', 'B', ' ', 'C', ' ']
+next1 = [4, 3, 4, 4, 5, 6, 0]
+next2 = [4, 2, 4, 4, 1, 6, 0]
 
 # (AB* + A*D)E
+# ch = [' ', 'A', ' ', 'B', ' ', 'A', 'D', 'E', ' ']
+
 
 # (A+B)*(C+D)*E
 
-next1 = [5, 2, 3, 4, 8, 6, 7, 8, 9, 0]
-next2 = [5, 2, 1, 4, 8, 2, 7, 8, 9, 0]
+
 
 class Deque:
     def __init__(self, size):
@@ -99,7 +104,7 @@ while True:
     pos += previous
     i = pos
     if i <= N:
-        print('패턴이 나타난 위치 : ', pos)
+        print('패턴이 나타난 위치 :', pos)
     else:
         break
     previous = i

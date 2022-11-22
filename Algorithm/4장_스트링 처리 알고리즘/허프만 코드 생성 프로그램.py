@@ -50,6 +50,7 @@ def makeHuffman(t, m):
     for i in range(27):
         if count[i]:
             pq.insert(count[i], i)
+
     i = 27
     while not pq.isEmpty():
         t1 = pq.remove()
@@ -77,6 +78,26 @@ def makeHuffman(t, m):
         code[k] = x
         length[k] = i
     
+    # count, dad, code, length 리스트의 0 제거
+    # remove는 해당하는 값 하나만 지워지므로 while문으로 작성해줌
+    while 0 in count:
+        count.remove(0)
+    
+    while 0 in dad:
+        dad.remove(0)
+    dad.append(0)  # dad 리스트 맨 마지막에 0 추가
+
+    '''
+    while 0 in code:
+        code.remove(0)
+    code.insert(11, 0)  # code 리스트 N 자리에 0 삽입
+    
+    while 0 in length:
+        length.remove(0)
+
+    근데 이 코드들을 넣으면 인코딩이 안됨...
+    '''
+
     # count[k] 출력 코드 추가
     print('count[k]:', count[0:44])
     print()
@@ -113,26 +134,46 @@ def findDad(max_i, k):
             return i
 
 # 디코딩 하는 함수
-def decode(h):  # h는 변환된 이진수들
-    
-    # 이진수를 리스트 안에 저장
-    d_tmp = []
+def decode(h):           # h는 변환된 이진수들
+    decoding_text = ""   # 디코딩 된 문자열
+
+    # 이진수를 리스트 안에 숫자 형태로 바꿔서 저장
+    encoding_text = []
     for i in range(len(h)):
-        d_tmp.append(h[i])
+        encoding_text.append(int(h[i]))
 
-    # 저장된 이진수 왼쪽부터 순차적으로 진행
-    for i in d_tmp:
+    # 저장된 이진수 왼쪽부터 순차적으로 진행 (리스트 끝날 때까지)
+    i = 0
+    k_list = [0, 1, 2, 3, 4, 5, 6, 7, 9, 12, 13, 14, 15, 16, 18, 19, 20, 21,
+              27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43]
+    k = k_list[findDad(35, encoding_text[0])]  # 초기 값 세팅
+
+    while i < len(encoding_text):
+
+        # 이진수가 1일 경우, 마이너스 부호를 붙여줌
+        if encoding_text[i] == 1:
+            k = -k
         
-    
-    # dad[k]가 0인 k를 찾으면 43
+        k = k_list[findDad(35, k)]
 
-    # 1이니까 dad[k]를 음수로 바꾸고 -43인 것을 찾으면 42
+        # k값이 22이하, 즉 알파벳으로 바뀔 수 있으면 바꿔서 저장
+        # 이때, dad[k]의 길이가 35이므로, max_i는 35
+        if 0 <= k < 22:
+            decoding_text += char(k)
+            
+            # 1이 연속으로 3개 -> 띄어쓰기 (리스트 범위 넘어가게 비교하지 X)
+            if i < len(encoding_text)-2 and encoding_text[i+1] == 1:
+                if encoding_text[i+2] == 1:
+                    if encoding_text[i+3] == 1:
+                        decoding_text += char(0)
+                        i += 3
 
-    # 1이니까 dad[k]를 음수로 바꾸고 -42인 것을 찾으면 40
+            # k값 초기화
+            k = 43
 
-    # 0이니까 dad[k]가 40인 것을 찾으면 36
+        i += 1
 
-    # dad[k]가 36일 때, k는 5 => 알파벳 E
+    return decoding_text  
 
 # text = 'VISION QUESTION ONION CAPTION GRADUATION EDUCATION'
 text = 'A SIMPLE STRING TO BE ENCODED USING A MINIMAL NUMBER OF BITS'
@@ -144,6 +185,9 @@ M = len(text)
 pq = PQ()
 makeHuffman(text, M)
 h = encode(text, M)
+print('<인코딩 결과>')
 print(h)
+print()
 d = decode(h)
+print('<디코딩 결과>')
 print(d)
