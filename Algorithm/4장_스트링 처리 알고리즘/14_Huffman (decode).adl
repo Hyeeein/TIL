@@ -1,0 +1,22 @@
+decode(h)
+    n <- h의 길이;
+    d_text <- 공백 스트링;
+    maxIndex <- 27;
+    i <- 28;
+    while (dad[i] != 0) do{
+        i <- i + 1
+        maxIndex <- i;
+    }
+    j <- 0;
+    while (j < n) do {
+        k <- maxIndex;
+        while () do {
+            if () then
+                ;
+            ;
+            ;
+        }
+        d_text <_ d_text와 char(k) 접합
+    }
+    return d_text;
+end decode()
