@@ -1,0 +1,23 @@
+inside(t, p[], n)
+    count <- 0; j <- 0;
+    p[0] <- p[n]; p[n+1] <- p[1];
+
+    lt.p1 <- t;
+    lt.p2 <- t;
+    lt.p2.x <- 무한대;
+
+    for (i <- 1; i <= n; i <- i + 1) do {
+        lp.p1 <- p[i];
+        lp.p2 <- p[i];
+
+        if (lp와 lt가 교차하지 않음) then {
+            lp.p2 <- p[j];
+            j <- i;
+        
+            if (lp와 lt가 교차함) then {
+                count <- count + 1;
+        }
+    }
+    if (count = 홀수) then return TRUE;
+    else return FALSE;
+end inside()

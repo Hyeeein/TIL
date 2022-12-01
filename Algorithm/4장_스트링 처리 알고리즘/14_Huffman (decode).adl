@@ -10,11 +10,11 @@ decode(h)
     j <- 0;
     while (j < n) do {
         k <- maxIndex;
-        while () do {
-            if () then
-                ;
-            ;
-            ;
+        while (k > 26) do {
+            if (h[j] = "1") then
+                k = -k;
+            j <- j + 1;
+            k = findDad(maxIndex, k);
         }
         d_text <_ d_text와 char(k) 접합
     }
