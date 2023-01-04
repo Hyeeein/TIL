@@ -1,0 +1,9 @@
+theta(p1, p2)
+    dx <- p2.x - p1.x; ax <- |dx|;
+    dy <- p2.y - p1.y; ay <- |dy|;
+    if ((ax + ay) = 0) then t <- 0;
+    else t <- dy / (ax + ay);
+    if (dx < 0) then t <- 2-t;
+    else if (dy < 0) then t <- 4+t;
+    return t * 90.0;
+end theta()

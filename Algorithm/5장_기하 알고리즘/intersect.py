@@ -10,6 +10,7 @@ def ccw(p0, p1, p2):
     if dx1 == 0 and dy1 == 0: return 0
     if (dx1 * dx2 < 0) or (dy1 * dy2 < 0): return -1
     if (dx1 * dx1 + dy1 * dy1) < (dx2 * dx2 + dy2 * dy2): return +1
+    return 0
 
 def intersect(l1, l2):
     t1 = ccw(l1.p1, l1.p2, l2.p1) * ccw(l1.p1, l1.p2, l2.p2)
@@ -30,3 +31,31 @@ for i in range(N):
     p.append(g.point(g.x_value[i], g.y_value[i], g.c_value[i]))
 l1 = g.line()
 l2 = g.line()
+
+l1.p1 = p[1]  # A
+l1.p2 = p[15] # O
+l2.p1 = p[3]  # C
+l2.p2 = p[14] # N
+result = intersect(l1, l2)
+printLine(l1, l2, result)
+
+l1.p1 = p[4]  # D
+l1.p2 = p[8]  # H
+l2.p1 = p[5]  # E
+l2.p2 = p[9]  # I
+result = intersect(l1, l2)
+printLine(l1, l2, result)
+
+l1.p1 = p[1]  # A
+l1.p2 = p[15] # O
+l2.p1 = p[4]  # D
+l2.p2 = p[7]  # G
+result = intersect(l1, l2)
+printLine(l1, l2, result)
+
+l1.p1 = p[9]  # I
+l1.p2 = p[16] # P
+l2.p1 = p[10] # J
+l2.p2 = p[14] # N
+result = intersect(l1, l2)
+printLine(l1, l2, result)
