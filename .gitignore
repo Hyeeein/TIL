@@ -3,3 +3,7 @@
 *.pdf
 *.jpg
 *.txt
+*.h5
+*.zip
+
+AICE/
