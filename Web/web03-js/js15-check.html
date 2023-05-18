@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #colorbox {
+            width: 320px;
+            height: 320px;
+            position: relative;
+        }
+        #red, #green, #blue, #magenta {
+            width: 150px;
+            height: 150px;
+            border: 1px solid black;
+            position: absolute;
+        }
+        #green {
+            left: 160px;
+        }
+        #blue {
+            top: 160px;
+        }
+        #magenta {
+            left: 160px;
+            top: 160px;
+        }
+    </style>
+
+    <script>
+        function selectColor() {
+            var chks = document.getElementsByName("chk");  // 노드 리스트
+
+            for (var i = 0; i < chks.length; i++) {
+                // console.log(chks[i].checked)
+                if (chks[i].checked) {
+                    document.getElementById(chks[i].value).style.backgroundColor = chks[i].value;
+                    // 체크가 되면 체크된 value값을 넣어라
+                } else {
+                    document.getElementById(chk[i].value).style.backgroundColor = '';
+                }
+            }
+        }
+
+        function allCheck(bool) {
+            // bool 대신 True라고 쓰면 True라는 값 그 자체가 들어가버림
+            // 이 함수가 하는 일은 전체 선택을 클릭하면 다른 것도 다 선택되고 / 그렇지 않으면 다 해제되는 것
+            var chks = document.getElementsByName("chk");
+
+            for (var i = 0; i < chks.length; i++) {
+                chks[i].checked = bool;     // bool에 맞게 true, false 값을 각각 넣어주겠다
+            }
+        }
+        
+        function clearDiv() {
+            allCheck(false);
+
+            var colorbox = document.querySelectorAll("#colorbox > div");
+            for (var i = 0; i < colorbox.length; i++) {
+                colorbox[i].style.backgroundColor = "";
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+    <div id = "colorbox">
+        <div id="red">red</div>
+        <div id="green">green</div>
+        <div id="blue">blue</div>
+        <div id="magenta">magenta</div>"
+    </div>
+
+    <div id = "base">
+        <form>
+            <input type="checkbox" name="all" onclick="allCheck(this.checked);">전체 선택<br>
+            <!-- 
+                onclick 이벤트는 input 객체에 속함
+                this는 input 객체를 말함. input 태그에서 체크한 내용은 True/False 값
+                이 체크한 내용을 allCheck 함수에 전달해줌 (bool 값을 변수라고 생각하면 됨)  -->
+
+            <input type="checkbox" name="chk" value="red">빨강<br>
+            <input type="checkbox" name="chk" value="green">초록<br>
+            <input type="checkbox" name="chk" value="blue">파랑<br>
+            <input type="checkbox" name="chk" value="magenta">진홍<br>
+
+            <input type="button" value="선택" onclick="selectColor();">
+            <input type="button" value="취소" onclick="clearDiv();">
+        </form>
+    </div>
+    
+</body>
+</html>

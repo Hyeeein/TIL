@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function tableVal() {
+            var doc = document.forms[0]; // 여러 폼 태그 중에서 첫번째 폼태그를 가져와라
+
+            // 홈태그 안에 있는 name이 id인 애의 값을 가져와라 (비번, 주소, 번호 모두 동일) => 배열 생성
+            var vals = [doc.id.value, doc.pw.value, doc.addr.value, doc.phone.value]
+
+            // 유효성 검사 : 내가 유효한 값을 넣어주지 않으면 올바르게 쓰라고 뜨는 것 (값이 제대로 들어가 있는지 확인)
+            for (var i = 0; i < vals.length; i++) {
+                if (vals[i] == null || vals[i] == "" || vals[i] == undefined) {
+                    alert("제대로 입력했는지 다시 한번 확인해 주세요!");
+                    return;
+                }
+            }
+            // createRow에 배열을 전달함
+            document.getElementById("addtr").appendChild(createRow(vals));
+        }
+
+        function createRow(vals) {
+            // tr 객체를 만듦
+            var tr = document.createElement("tr");
+
+            // tr 밑에 td를 반복적으로 만들어서 넣어줌
+            for (var i = 0; i < vals.length; i++) {
+                var td = document.createElement("td");
+                td.textContent = vals[i];   // id값, pw값, 주소값, 번호값 모두
+                tr.appendChild(td);
+            }
+
+            // input 태그를 가지고 있는 td를 하나 더 생성
+            // 함수를 실행하면 delRow를 전달함
+            var deleteTd = document.createElement("td");
+            deleteTd.innerHTML = "<input type='button' value='삭제' onclick='delRow(this)'>"; // this는 input 태그
+            tr.appendChild(deleteTd);
+
+            /*
+                <tr>
+                    <td>id값</td>
+                    <td>pw값</td>
+                    <td>addr값</td>
+                    <td>phone값</td>
+                    <td><input type="button" value='삭제' onclick='delRow(this)'></td>
+                </tr>
+            */
+
+            return tr;
+        }
+
+        function delRow(ele) {
+            // input태그의 부모태그 찾아서 거기에 또 부모태그 찾으면 tr태그가 나옴 => 이걸 찾아서 삭제
+            var delTr = ele.parentNode.parentNode;
+            var tbody = document.getElementById("addtr");
+            tbody.removeChild(delTr);
+        }
+
+        function deleteAll() {
+            var tbody = document.getElementById("addtr");
+
+            while(tbody.hasChildNodes()){
+                tbody.removeChild(tbody.lastChild);
+                // tbody.lastChild는 tbody 노드의 가장 마지막 요소 리턴을 의미
+                // 가장 마지막 자식요소부터 삭제하는데 우리 눈엔 너무 빨라서 한번에 지워지는 것처럼 보임
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+    <form>
+        <table id = "intable">
+            <!-- 1) input 태그에 값을 하나씩 넣어줌 -->
+            <tr>
+                <td>아이디</td>
+                <td><input type="text" name="id"></td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td><input type="text" name="pw"></td>
+            </tr>
+            <tr>
+                <td>주소</td>
+                <td><input type="text" name="addr"></td>
+            </tr>
+            <tr>
+                <td>전화번호</td>
+                <td><input type="text" name="phone"></td>
+            </tr>
+        </table>
+        <!-- 2) '추가' 버튼을 누르면 tableVal() 함수를 실행 -->
+        <input type="button" value="추가" onclick="tableVal();">
+        <input type="button" value="삭제" onclick="deleteAll();">
+    </form>
+
+    <div id="addtable">
+        <table border="1" id="ctb">
+            <col width="100px">
+            <col width="100px">
+            <col width="300px">
+            <col width="200px">
+            <col width="100px">
+            <thead>
+                <tr>
+                    <th>아이디</th>
+                    <th>비밀번호</th>
+                    <th>주소</th>
+                    <th>전화번호</th>
+                    <th>삭제</th>
+                </tr>
+            </thead>
+            <tbody id="addtr"></tbody>
+        </table>
+    </div>
+    
+</body>
+</html>
