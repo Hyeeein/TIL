@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function guguOut(){
+            var num = document.getElementById("gugudan").value;
+            // console.log(num);
+
+            var result = [];
+            for (var i = 1; i < 10; i++) {
+                result[i] = num + "*" + i + "=" + num*i;
+            }
+            alert(result);
+        }
+    </script>
+</head>
+<body>
+    <b>(입력 예: 3 -> 3*1 = 3 3*2 = 6 ...)</b><br>
+    <input type="text" id = "gugudan">
+    <button onclick="guguOut();">출력</button>
+</body>
+</html>

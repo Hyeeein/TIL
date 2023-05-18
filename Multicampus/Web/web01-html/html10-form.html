@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="html-form-res.html" method="post">
+        <fieldset>
+            <legend>회원가입</legend>
+
+            <p>ID : <input type="text" name="id"></p>
+            <p>PW : <input type="password" name="pw"></p>
+            <p>Email 수신 여부<br>
+                <input type="radio" name="rdo" value="y" />y
+                <input type="radio" name="rdo" value="n" />n
+            </p>
+            <p>관심분야
+                <input type="checkbox" name="web" value="web" />WEB<br>
+                <input type="checkbox" name="ai" value="ai" />Data Science<br>
+                <input type="checkbox" name="engi" value="engi" />Data Engineer<br>
+            </p>
+            <p>하고싶은 말
+                <textarea name="etc" cols="60" rows="10"></textarea>
+            </p>
+            <p>
+                <input type="button" value="그냥 버튼"/><br>
+                <input type="reset" value="취소" /><br>
+                <input type="submit" value="전송" />
+            </p>
+
+        </fieldset>
+    </form>
+
+</body>
+</html>
+
+<!--
+    form 태그는 action 속성에 있는 경로에다가 요청함
+    name, value 값, 그리고 체크되는 것들!
+
+    서버는 요청을 받아서 그거에 맞게 응답해주는 역할
+    html-form-res을 요청한 것! 누구한테? 서버한테.
+
+    form - action - name, value - submit
+    submit은 form 태그 안에서 입력했던 애들 중 name= 이라고 붙은 애들의 value 값을 전달
+            서버에 입력값을 전송하고 그에 맞는 정보를 돌려달라는 요청
+
+
+    맨 위에 action="html-form-res.html"은 앞에서 나온 <a href="O"> 처럼 O에 요청하는 것과 같음
+    즉, html-form-res.html 문서를 서버에 열어달라고 요청하는 것.
+    그리고 name과 value 값에 있는 애들, 체크된 아이들은 넘어감.
+
+    input은 값을 넣을 수 있게 해줌
+    radio는 type이 같은 애들 중에서 하나 선택할 수 있도록 함
+    textarea의 cols는 가로, rows는 세로
+
+    이메일 input 뒤에 y랑 n은? 버튼만 생기고 클릭할 수도 있음
+
+    
+    get 방식은 ?로 나오는 것
+    post는 비밀번호처럼 보여지면 안되는 내용
+-->

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function func01(){ 
+            alert("함수의 이름이 있습니다."); // 알럴ㅌ
+        }
+        var func02 = function(){ //함수가 값!!!!!파이썬으로 치면 a = def test()
+            alert("함수의 이름이 없습니다."); // 함수가 값으로 이용됨, 함수 형태의 값
+        }
+        // var 변수 = 값;
+        // alert(func02) 함수를 값으로 가지고 있는 것을 확인 가능
+        // alert(func02()) 함수가 실행되는 것을 확인 가능
+        function func03(){
+            /*function test(){
+                alert("내부 함수");
+            }
+            test(); */
+            (function(){
+                alert("즉시 실행 함수"); // 익명 함수
+            })();    // 함수를 괄호를 한번 묶어주고 -> ()로 실행 -> 외부에서 단독으로 사용할 때도 이 형식으로 쓰면 사용 가능
+        }
+
+        function literalPrn(literal){ // (literal=parameter) literal=function(msg){alert(msg); 함수를 값으로 갖는 변수
+                                      // func02에서 보면 함수를 값으로 가진 변수를 출력하려면 `변수명()`형태로 호출!
+                                      // 따라서 literal() = function("안녕하세요. 함수 형태의 값!!입니다."){alert("안녕하세요. 함수 형태의 값!!입니다.")}이 실행!
+            literal("안녕하세요. 함수 형태의 값!!입니다.");
+        }
+
+        function func04(){
+            literalPrn(function(msg){alert(msg);}); // argument
+        }
+
+        /*
+        1) func04 함수 호출
+        2) literalPrn(literal) 값을 넣어서 이 함수가 실행됨
+        3) 여기서 func04 사이에 function(msg){alert(msg)}이 값으로 사용됨 -> literal로 전달
+        4) literal로 받았는데 안에 들어있는 메시지를 function(msg) 여기 msg 인자로 넣고
+        5) alert로 msg 명령어를 실행함
+        */
+
+        function closureFunc(val){ // 내부 함수에서 외부 함수에 있는 기능을 가져다 쓸 수 있는 것을 `클로저`라고 함
+            var suffix ="님, 안녕하세요~";
+            function innerFunc(){
+                alert(val + suffix + "잘 부탁 드립니다.")   // 밖에 있는 변수들을 씀 (클로저)
+            } 
+            return innerFunc; // ()없이 함수 이름만 쓰는 경우에는 함수가 값으로 사용되는 경우(함수가 실행되지 x)
+        }
+        var closureTest01 = closureFunc("멀캠"); // return 된 innerFunc이 값이 됨
+        
+        // closureTest01=innerFunc(){ 
+            // alert(val+suffix+'잘 부탁드립니다')
+            // }
+
+        /* 
+        1) clousreTest01 함수에서 closureFunc 함수를 실행
+        2) val 인자로 '멀캠'을 받아서 func innerFunc() 설계도 자체가 리턴됨 -> 즉 함수 자체가 리턴됨
+        3) 내부 함수가 리턴값이 되니까 내부 함수가 호출되는 것
+
+        // Q. 근데 innerFunc의 내부 함수 안에 인자가 없는데 ... 그래도 들어갈 수 있나? 이게 클로저다!
+        */
+
+
+        function closureTest02(val){
+            closureFunc(val)();
+            // var test = closureFunc(val);
+            // test();
+        }
+
+    </script>
+</head>
+<body>
+    <h1>function = 기능</h1>
+
+    <h2>함수의 종류</h2>
+    <p onclick="func01();">명시적 함수</p>
+    <p onclick="func02();">익명 함수</p> <!-- func02하면 값만 가져오고 func02()(=변수명())을 하면 함수 호출.... -->
+    <p onclick="func03();">즉시 실행 함수</p>
+    <p onclick="func04()">함수 리터럴</p>
+    <p onclick="closureTest01();">클로저 : 외부함수에 접근 가능 (변수 등)</p> <!--return 된 innerFunc이 값이 됨-->
+    <p onclick="closureTest02('멀티캠퍼스')">연습</p>
+</body>
+</html>
+
+

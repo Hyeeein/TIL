@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{border: 1px solid red;}
+        .prepend{border: 1px dotted green;}
+        .append{border: 1px dotted blue;}
+    </style>
+
+    <script src="resources/js/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(function(){
+            var cnt = 0;
+            $("button:eq(0)").click(function(){
+                $("div").prepend($("<p>").addClass("prepend").text("prepend"));
+                // prepend : 자식 요소들 중 가장 처음에 추가
+                // 여기서 $("<p>")는 <p> 태그를 만들어주는 역할
+            });
+            $("button:eq(1)").click(function(){
+                $("div").append($("<p>").addClass("append").text("append"));
+                // append : 자식 요소들 중 가장 마지막에 추가
+            });
+            $("button:eq(2)").click(function(){
+                $("div").html("<b>html 요소를 바꾼다.</b>");
+                // html : 괄호 안에 써놓은 <b>가 정상적으로 작동
+            });
+            $("button:eq(3)").click(function(){
+                $("div").text("<b>text 요소를 바꾼다.</b>");
+                // text : <b> 태그를 인식하지 못하고 "" 안에 있는 모든 것이 문자열로 인식됨
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+    <button>prepend</button>
+    <button>append</button>
+    <button>html</button>
+    <button>txt</button>
+
+    <div>
+        <p>내부 삽입1</p>
+        <p>내부 삽입2</p>
+    </div>
+
+</body>
+</html>

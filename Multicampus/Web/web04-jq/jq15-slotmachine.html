@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 150px;
+            height: 150px;
+            float: left;
+        }
+        #menubox{position: relative}
+        #menu{overflow: auto}
+        .sel{
+            width: 140px;
+            height: 140px;
+            border: 5px dotted red;
+            position: absolute;
+            left: 300px;
+        }
+        button {
+            width: 150px;
+            height: 50px;
+            margin-left: 300px;
+        }
+    </style>
+
+    <script src="resources/js/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(function(){
+            setInterval(function(){
+                var div = $("#menu");
+                $(".active").first().appendTo(div);
+            }, 100);
+            // setInterval(실행함수, 밀리초) : 이 코드에서는 0.1초마다 이 함수가 실행되는 것
+            // first() : 현재 위치에 해당하는 가장 첫 번째 엘리먼트 반환
+            // $(".active").appendTo(div) : active 클래스를 div 에 붙임 (target이 뒤에 옴)
+
+            /*  1) id가 menu인 모든 값(객체)을 div에 저장
+                2) active라는 속성을 가진 객체를 가져옴. 근데 지금은 없음.
+                
+                3) 근데 여기서 start 버튼을 누르게 되면 active 클래스가 생성 (img 태그 6개에 active 클래스 다 붙음)
+                4) active 클래스인 img 태그들 중에서 첫 번째 사진 선택 => $(".active").first
+                5) 
+
+            */
+            // 2) 
+
+            // => 즉, id가 menu인 모든 값(객체)을 div에 저장
+            //    
+            //    , img 태그들에 active 클래스가 다 붙음.
+            //    active 클래스가 있는 애들이 6개가 있는데 first니까 첫번째 사진이 골라짐
+
+            //    .appendTo(div)니까 $(".active").first()를 div 자식요소의 맨 뒤에 추가
+            //    이미 있는 애들을 선택해서 추가하자고 하면 그 위치가 변화함 (맨 뒤로) 그래서 바뀌는 것
+
+            $("button").click(function(){
+                $("img").toggleClass("active");
+                if($("button").text() == "start"){
+                    $("button").text("stop");
+                } else {
+                    $("button").text("start");
+                }
+            });
+            // $("img").toggleClass("active") : img 요소에 active 클래스가 없으면 추가하고, 있으면 제거
+            // button의 텍스트가 start면 stop으로 바꾸고, 그렇지 않을 경우 start로 냅둠
+        });
+    </script>
+
+</head>
+<body>
+    
+    <h1>SlotMachine</h1>
+
+    <div id="menubox">
+        <div class="sel"></div>
+
+        <div id="menu">
+            <img src="resources/imgs/img01.jpg" alt="img01">
+            <img src="resources/imgs/img02.jpg" alt="img02">
+            <img src="resources/imgs/img03.jpg" alt="img03">
+            <img src="resources/imgs/img04.jpg" alt="img04">
+            <img src="resources/imgs/img05.jpg" alt="img05">
+            <img src="resources/imgs/img06.jpg" alt="img06">
+        </div>
+
+        <button>start</button>
+    </div>
+
+</body>
+</html>
