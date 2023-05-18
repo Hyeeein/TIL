@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function allChk(bool) {
+            var chks = document.getElementsByName("chk");
+
+            for (var i = 0; i < chks.length; i++) {
+                chks[i].checked = bool;     // bool에 맞게 true, false 값을 각각 넣어주겠다
+            }
+        }
+    </script>
+</head>
+<body>
+    
+    <input type="checkbox" name="all" onclick="allChk(this.checked)">전체선택
+    <br>
+    <input type="checkbox" name="chk"><b>Java</b>
+    <br>
+    <input type="checkbox" name="chk"><b>DataBase</b>
+    <br>
+    <input type="checkbox" name="chk"><b>Web</b>
+    <br>
+
+</body>
+</html>
